@@ -42,4 +42,6 @@ Circle.prototype = Object.create(Shape.prototype);
 Circle.prototype.constructor = Circle;
 
 let circle = new Circle(6, "red");
-circle.height();
+// circle.height();
+
+
