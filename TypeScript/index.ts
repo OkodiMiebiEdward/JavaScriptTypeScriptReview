@@ -111,3 +111,7 @@ type specialNumber = number | null;
 let num:specialNumber = null
 // console.log(num)
 
+
+//Literal Types
+
+
