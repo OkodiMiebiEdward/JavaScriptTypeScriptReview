@@ -36,4 +36,28 @@ function getSize(size) {
 }
 // getSize(1);
 let number = 678789789;
-console.log(number);
+let janitor = {
+    name: "joe",
+    age: 45,
+    salary: 45000,
+    jobDescription: () => {
+        console.log(`my name is ${janitor.name}
+                       my job is to clean and to sweep`);
+    }
+};
+let booksAuthors = {
+    name: "Harry Potter",
+    yearWritten: "1890",
+    authorName: "Mikes",
+    dob: "1678",
+    isAlive: false
+};
+//type narrowing
+function getPhoneNumber(num) {
+    if (typeof num === 'number')
+        console.log(`The number is ${num}`);
+    else
+        console.log(num.length);
+}
+let num = null;
+console.log(num);

@@ -43,8 +43,71 @@ function getSize(size:number):void
 // getSize(1);
 
 let number:number = 678_789_789;
-console.log(number)
+// console.log(number)
 
 
+//Objects
+//using type alias
+type employee =
+{
+  name:string,
+  age:number,
+  salary:number,
+  jobDescription:() => void
+}
 
+
+let janitor:employee = {
+    name: "joe",
+    age: 45,
+    salary: 45_000,
+    jobDescription: ():void => {
+        console.log(`my name is ${janitor.name}
+                       my job is to clean and to sweep`);
+    }
+}
+
+// janitor.jobDescription();
+
+//union type
+// type data =  (string | number);
+// let personalInfo:data = "No 7 fills johns avenue";
+// console.log(personalInfo);
+
+
+//intersections
+//The intersection type can work properly by creating objects that intersect
+type books = {
+  name:string,
+  yearWritten:string
+}
+
+type author = {
+   authorName:string,
+   dob:string,
+   isAlive:boolean
+}
+
+let booksAuthors: books&author = {
+    name: "Harry Potter",
+    yearWritten:"1890",
+    authorName:"Mikes",
+    dob:"1678",
+    isAlive:false
+}
+
+//type narrowing
+function getPhoneNumber(num:(string | number)):void{
+   if(typeof num === 'number')
+      console.log(`The number is ${num}`);
+    else
+    console.log(num.length);
+}
+
+// getPhoneNumber(`Can't give you my number`);
+
+//nullable types
+type specialNumber = number | null;
+let num:specialNumber = null
+// console.log(num)
 
