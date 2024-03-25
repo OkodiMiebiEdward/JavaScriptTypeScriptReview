@@ -222,6 +222,23 @@ class Calender implements ICalender
 }
 
 //Generics
+class KeyValuePair<Tkey,Tvalue>
+{
+    //contains properties we can only know when we run the code.
+    constructor(public key:Tkey,public value:Tvalue)
+    {
+    }
+}
 
+let pair = new KeyValuePair("boy",12);
 
+//Generic functions
+function sayTime<T>(val:T):T
+{
+    return val;
+}
 
+let result = sayTime<string>("The time is late");
+// console.log(result);
+
+//Generic interface

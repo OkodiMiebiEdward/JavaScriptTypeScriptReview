@@ -116,9 +116,44 @@ class Account {
 // let account = new Account("Joe Robinson", true, true);
 // account.money = 56_000;
 // console.log(account.money);
-class Person {
-    static checkDetails() {
-        console.log("All provided info are correct");
+class Shape {
+    constructor(size, color) {
+        this.size = size;
+        this.color = color;
     }
 }
-Person.checkDetails();
+class Circle extends Shape {
+    constructor(height, size, color) {
+        super(size, color);
+        this.height = height;
+    }
+}
+class Calender {
+    // name: string;
+    // AddEvent: () => void;
+    // removeEvent: () => string;
+    /**
+     *
+     */
+    constructor(name) {
+        this.name = name;
+        this.removeEvent = () => "event removed";
+    }
+    addEvent() {
+    }
+}
+//Generics
+class KeyValuePair {
+    //contains properties we can only know when we run the code.
+    constructor(key, value) {
+        this.key = key;
+        this.value = value;
+    }
+}
+let pair = new KeyValuePair("boy", 12);
+//Generic functions
+function sayTime(val) {
+    return val;
+}
+let result = sayTime("The time is late");
+console.log(result);
