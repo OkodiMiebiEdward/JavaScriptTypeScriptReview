@@ -7,6 +7,12 @@
  * Basically all reference types in JavaScript are objects
  * TypeScript types include any,arrays,Tuples,Enums,Unknown,never
  */
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 //so basically i have to pass the exact type even if it is an object
 let person = {
     name: "joe",
@@ -156,4 +162,72 @@ function sayTime(val) {
     return val;
 }
 let result = sayTime("The time is late");
-console.log(result);
+class Data {
+    constructor(name) {
+        this.name = name;
+        this.hobbies = ["Dancing", "Skipping"];
+    }
+}
+//Generic Constraints
+function echo(val) {
+    return val;
+}
+//Decorators in TypeScript
+//class Decorators
+function Component(constructor) {
+    console.log("Calling the decorator");
+    constructor.prototype.uniqueId = Date.now();
+    constructor.prototype.insertDom = () => {
+        console.log("Inserting the element in the DOM");
+    };
+}
+// function Pipe(constructor:Function)
+// {
+//   console.log("Pipe decorator is called");
+//   constructor.prototype.Pipe = true;
+// }
+// @Component
+// @Pipe
+// class ProfileComponent
+// {
+// }
+//method decorators i.e inside of a class
+// function Log(target:any, methodName:string, descriptor:PropertyDescriptor)
+// {
+//   const original = descriptor.value as Function;
+//   descriptor.value = function(message:string)
+//   {
+//     console.log('Before');
+//     original.call(this,message)
+//     console.log("After");
+//   }
+// }
+// class Person
+// {
+//    @Log
+//    say(message:string)
+//    {
+//      console.log(`Person says ${message}`);
+//    }
+// }
+function Capitalize(target, methodName, descriptor) {
+    const original = descriptor.get;
+    descriptor.get = function () {
+        const result = original === null || original === void 0 ? void 0 : original.call(this);
+        return (typeof result === 'string') ? result.toUpperCase() : result;
+    };
+}
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+__decorate([
+    Capitalize
+], Person.prototype, "fullName", null);
+let p = new Person('john', 'smith');
+console.log(p.fullName);
