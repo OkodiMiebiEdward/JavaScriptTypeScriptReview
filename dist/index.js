@@ -60,4 +60,65 @@ function getPhoneNumber(num) {
         console.log(num.length);
 }
 let num = null;
-console.log(num);
+// console.log(num)
+//Literal Types
+let quantity = 50;
+//Nullish Coalescing Operator
+// ?? operator
+let address = null;
+let ans = address !== null && address !== void 0 ? address : "Address not provided";
+// console.log(ans);
+//OOP
+//Creating Classes
+// class Account
+// {
+//     public name: string;
+//     public isAccountActive:boolean;
+//     public isEmployed:boolean;
+//     private _accountType:string = "Saving";
+//     constructor(name:string,isAccountActive:boolean,isEmployed:boolean)
+//     {
+//       this.name = name;
+//       this.isAccountActive = isAccountActive;
+//       this.isEmployed = isEmployed;
+//     }
+//     getAccountType():string
+//     {
+//        return this._accountType;
+//     }
+//     CreateAnotherAccount():void
+//     {
+//         let output:string = "";
+//         output = this._accountType === "Saving" ? "Current" : "Saving";
+//         console.log(`You will be creating a ${output} account`);
+//     }
+// }
+// let account = new Account("Joe Robinson", true, true);
+// account.CreateAnotherAccount();
+//using parameter properties
+class Account {
+    constructor(name, isAccountActive, isEmployed) {
+        this.name = name;
+        this.isAccountActive = isAccountActive;
+        this.isEmployed = isEmployed;
+        this._amount = 890890789;
+    }
+    get money() {
+        return this._amount;
+    }
+    set money(value) {
+        if (value < 0)
+            throw new Error('number cannot be smaller than 0');
+        else
+            this._amount = value;
+    }
+}
+// let account = new Account("Joe Robinson", true, true);
+// account.money = 56_000;
+// console.log(account.money);
+class Person {
+    static checkDetails() {
+        console.log("All provided info are correct");
+    }
+}
+Person.checkDetails();

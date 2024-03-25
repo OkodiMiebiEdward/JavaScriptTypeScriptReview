@@ -113,5 +113,115 @@ let num:specialNumber = null
 
 
 //Literal Types
+let quantity:50 = 50;
+
+//Nullish Coalescing Operator
+// ?? operator
+let address = null
+let ans: (string | null) = address ?? "Address not provided";
+// console.log(ans);
+
+//OOP
+//Creating Classes
+// class Account
+// {
+//     public name: string;
+//     public isAccountActive:boolean;
+//     public isEmployed:boolean;
+//     private _accountType:string = "Saving";
+
+//     constructor(name:string,isAccountActive:boolean,isEmployed:boolean)
+//     {
+//       this.name = name;
+//       this.isAccountActive = isAccountActive;
+//       this.isEmployed = isEmployed;
+//     }
+
+//     getAccountType():string
+//     {
+//        return this._accountType;
+//     }
+
+//     CreateAnotherAccount():void
+//     {
+//         let output:string = "";
+//         output = this._accountType === "Saving" ? "Current" : "Saving";
+//         console.log(`You will be creating a ${output} account`);
+//     }
+// }
+
+// let account = new Account("Joe Robinson", true, true);
+// account.CreateAnotherAccount();
+
+//using parameter properties
+class Account
+{
+    private _amount:number = 890_890_789;
+    constructor(public name:string, public isAccountActive:boolean, public isEmployed:boolean){}
+
+    get money():number
+    {
+       return this._amount
+    }
+
+    set money(value:number)
+    {
+       if(value < 0)
+          throw new Error('number cannot be smaller than 0');
+        else
+        this._amount = value;
+    }
+    
+    //index signature
+    //[SetNames:string]:string
+}
+
+// let account = new Account("Joe Robinson", true, true);
+// account.money = 56_000;
+// console.log(account.money);
+
+
+class Shape
+{
+    constructor(public size:string,public color:string){}
+}
+
+
+class Circle extends Shape
+{
+    constructor(public height:number,size:string,color:string){
+        super(size,color)
+    }
+}
+
+//Interfaces
+interface ICalender
+{
+    name:string;
+    addEvent:() => void;
+    removeEvent:() => string;
+}
+
+
+class Calender implements ICalender
+{
+    // name: string;
+    // AddEvent: () => void;
+    // removeEvent: () => string;
+    /**
+     *
+     */
+    constructor(public name:string) {
+    }
+
+    addEvent():void
+    {
+    }
+
+    removeEvent = ():string => "event removed";
+}
+
+//Generics
+
 
 
